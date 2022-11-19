@@ -10,10 +10,14 @@ app.set('view engine', 'ejs');
 app.get("/", function(req, res){
   
     var today = new Date();
-    if(today.getDay() === 6 || today.getDay() === 0){
+    var currentDay = today.getDay();
+    var day = "";
+    if(currentDay === 6 || currentDay === 0){
+        day = "Weekend"
         res.send("<h1>Yah it's the Weekend!</h1>")
     }
     else{
+        day = "Week Day"
         res.sendFile(__dirname+ '/index.html' )
     }
 });
